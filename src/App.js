@@ -9,8 +9,14 @@ function App() {
 
   const [sec, setSec] = useState(dateT.getSeconds())
 
-  console.log(hr,min,sec)
-  console.log(dateT)
+  useEffect(() => {
+    setTimeout(() => {
+      setSec(dateT.getSeconds())
+      setMin(dateT.getMinutes())
+      setHr(dateT.getHours())
+    }, 1000)
+  })
+  
   return (
     <div className="App">
       <div className="date-time">{dateT.getDate()}/{dateT.getMonth()}/{dateT.getFullYear()}, {hr}:{min}:{sec}</div>
